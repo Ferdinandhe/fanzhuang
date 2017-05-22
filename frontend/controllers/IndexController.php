@@ -10,23 +10,37 @@ namespace app\controllers;
 
 
 
-use app\models\Type;
+use common\models\details;
 use yii\web\Controller;
 
 class IndexController extends Controller
 {
     public function actionIndex()
     {
-        $data = Type::find()->asArray()->all(); //从数据库中查找数据
-//        var_dump($data);die;
+        $data = Details::find()->where(['feature' => 1])->asArray()->all(); //从数据库中查找数据
+
         return $this->renderPartial('index',['data'=>$data]);
 
     }
 
-    public function actionAaa()
+    public function actionShop()
     {
-        echo 'fdsaf';
+        $data = Details::find()->asArray()->all();
+        return $this->renderPartial('shop',['data'=>$data]);
     }
+
+
+    public function actionRooms()
+    {
+        return $this->renderPartial('rooms');
+    }
+
+
+    public function actionWe()
+    {
+        return $this->renderPartial('we');
+    }
+
 
 
 
