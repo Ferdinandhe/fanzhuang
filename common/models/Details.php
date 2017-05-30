@@ -13,6 +13,7 @@ class Details extends ActiveRecord
 {
     public static function tableName()
     {
-        return 'dishes_details';
+       return 'dishes_details';
+
     }
 }

@@ -1,10 +1,14 @@
+<?php
+use yii\helpers\Url;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>关于我们</title>
-    <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
 <body>
 <div class="clearfix nav">
@@ -18,49 +22,16 @@
 </div>
 
 <div id="container">
-    <div id="buttons">
-        <span index="1" class="on"></span>
-        <span index="2"></span>
-        <span index="3"></span>
-    </div>
-    <a href="javascript:;" id="prev" class="arrow"><img src="img/l.png"/></a>
-    <a href="javascript:;" id="next" class="arrow"><img src="img/r.png"/></a>
+
 </div>
 <div>
     <p>华通饭庄位于宁晋县大曹庄管理区盐厂前村西</p>
 </div>
-<ul class="breadnav clearfix">
-    <li class="bnav-item"><a href="index.html">首页</a></li>
-    <li class="bnav-item">&lt;</li>
-    <li class="bnav-item"><a href="about-us.html">关于我们</a></li>
-</ul>
 
-<div>
-    <p>                    华通饭庄位于宁晋县大曹庄管理区盐厂前村西</p>
-</div>
+
 <div class="foot">
     <div class="foot-wrap">
-        <p class="foot-tit">友情链接</p>
-        <ul class="foot-link clearfix">
-            <li class="foot-pic">
-                <a href="javascript:;"><img src="img/link6.png"/></a>
-            </li>
-            <li class="foot-pic">
-                <a href="javascript:;"><img src="img/link5.png"/></a>
-            </li>
-            <li class="foot-pic">
-                <a href="javascript:;"><img src="img/link4.png"/></a>
-            </li>
-            <li class="foot-pic">
-                <a href="javascript:;"><img src="img/link3.png"/></a>
-            </li>
-            <li class="foot-pic">
-                <a href="javascript:;"><img src="img/link2.png"/></a>
-            </li>
-            <li class="foot-pic">
-                <a href="javascript:;"><img src="img/link1.png"/></a>
-            </li>
-        </ul>
+
         <div class="copyright">
             <p>CopyRight©2003-2015 www.91cy.cn All rigt rederved</p>
             <p>版权所有：贵族食代牛排有限公司  来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
@@ -71,7 +42,7 @@
 
 </body>
 <!--jq调用-->
-<script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="/js/jquery-1.11.0.js" type="text/javascript"></script>
 
 <script type="text/javascript">
     //导航当前项切换

@@ -15,7 +15,7 @@ use yii\helpers\Url;
 </head>
 <body>
 <div class="clearfix nav">
-    <a class="logo" href="../img/log.jpg:;"></a>
+    <a class="logo" href="/img/log.jpg:;"></a>
     <ul class="clearfix nav-wrap">
         <li><a class="nav-item nav-active" href="<?php echo Url::toRoute('index/index')?>">首页</a></li>
         <li><a class="nav-item" href="<?php echo Url::toRoute('index/shop')?>">美食系列</a></li>
@@ -26,12 +26,7 @@ use yii\helpers\Url;
 
 <div id="container">
     <div id="buttons">
-        <span index="1" class="on"></span>
-        <span index="2"></span>
-        <span index="3"></span>
     </div>
-    <a href="javascript:;" id="prev" class="arrow"><img src="/img/l.png"/></a>
-    <a href="javascript:;" id="next" class="arrow"><img src="/img/r.png"/></a>
 </div>
 
 <div class="new-wrap">
@@ -40,12 +35,10 @@ use yii\helpers\Url;
         <ul class="newfood-wrap clearfix newfood-show">
             <?php foreach ($data as $key=>$val):?>
                 <li class="newfood-item newfood-right newfood-li<?=$key+1?>">
-                    <a href="meishi-con.html" class="newfood-p<?=$key+1?>">茶漱海鲜汤</a>
+                    <a href="meishi-con.html" class="newfood-p<?=$key+1?>"><?php echo $val['type']?></a>
                 </li>
             <?php endforeach;?>
-
         </ul>
-
         <ul class="newfood-wrap clearfix">
             <?php foreach ($data as $val):?>
             <li class="newfood-item newfood-right newfood-li5">
@@ -53,32 +46,12 @@ use yii\helpers\Url;
             </li>
             <?php endforeach;?>
         </ul>
-
         <ul class="newfood-wrap clearfix">
+            <?php foreach ($data as $val):?>
             <li class="newfood-item newfood-right newfood-li3">
-                <a href="meishi-con.html" class="newfood-p3">芝士蛋糕卷</a>
+                <a href="meishi-con.html" class="newfood-p3"><?php echo $val['type']?></a>
             </li>
-            <li class="newfood-item newfood-li4">
-                <a href="meishi-con.html" class="newfood-p4">芝士大虾</a>
-            </li>
-            <li class="newfood-item newfood-right newfood-li1">
-                <a href="meishi-con.html" class="newfood-p1">茶漱海鲜汤</a>
-            </li>
-            <li class="newfood-item newfood-right newfood-li2">
-                <a href="meishi-con.html" class="newfood-p2">玉米海螺沟</a>
-            </li>
-            <li class="newfood-item newfood-right newfood-li7">
-                <a href="meishi-con.html" class="newfood-p7">黑椒牛排</a>
-            </li>
-            <li class="newfood-item newfood-right newfood-li5">
-                <a href="meishi-con.html" class="newfood-p5">西冷牛排</a>
-            </li>
-            <li class="newfood-item newfood-right newfood-li6">
-                <a href="meishi-con.html" class="newfood-p6">草莓布丁杯</a>
-            </li>
-            <li class="newfood-item newfood-li8">
-                <a href="meishi-con.html" class="newfood-p8">茶漱海鲜汤</a>
-            </li>
+            <?php endforeach;?>
         </ul>
     </div>
     <div class="clearfix" id="newfood-span">
@@ -88,10 +61,10 @@ use yii\helpers\Url;
     </div>
 </div>
 <div class="company-wrap">
-    <p class="company-tit">公司简介</p>
+    <p class="company-tit">饭庄简介</p>
     <dl class="clearfix company-dl">
         <dt class="company-dt">
-            <img src="../img/pic1.png"/>
+            <img src="/img/pic1.png"/>
         </dt>
         <dd class="company-dd">
             <p>华通饭庄位于宁晋县大曹庄管理区南行2km处紧邻宁隆乡道交通便利</p>

@@ -7,28 +7,22 @@ use yii\helpers\Url;
 <head>
     <meta charset="UTF-8">
     <title>美食系列</title>
-    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
 <body>
 <div class="clearfix nav">
     <a class="logo" href="javascript:;"></a>
     <ul class="clearfix nav-wrap">
         <li><a class="nav-item" href="<?php echo Url::toRoute('index/index')?>">首页</a></li>
-        <li><a class="nav-item nav-active" href="<?php echo Url::toRoute('index/meishi')?>">美食系列</a></li>
+        <li><a class="nav-item nav-active" href="<?php echo Url::toRoute('index/shop')?>">美食系列</a></li>
         <li><a class="nav-item" href="<?php echo Url::toRoute('index/rooms')?>">店面展示</a></li>
         <li><a class="nav-item" href="<?php echo Url::toRoute('index/we')?>">关于我们</a></li>
     </ul>
 </div>
 
 <div id="container">
-    <div id="buttons">
-        <span index="1" class="on"></span>
-        <span index="2"></span>
-        <span index="3"></span>
-    </div>
-    <a href="javascript:;" id="prev" class="arrow"><img src="../img/l.png"/></a>
-    <a href="javascript:;" id="next" class="arrow"><img src="../img/r.png"/></a>
+
 </div>
 
 <ul class="breadnav clearfix">
@@ -39,13 +33,11 @@ use yii\helpers\Url;
     <li class="bnav-item"><a href="javascript:;">全部菜品</a></li>
 </ul>
 <div class="clearfix table-wrap" id="tab-span">
-    <span class="table-item table-active">全部菜品</span>
-    <span class="table-item">特色菜</span>
-    <span class="table-item">主食</span>
-    <span class="table-item">酒水</span>
-    <span class="table-item">饮料</span>
-    <span class="table-item">其他</span>
-    <span class="table-item">其他</span>
+
+
+    <?php foreach ($type as $key=>$val):?>
+    <span class="table-item"><?php echo $val['type']?></span>
+    <?php endforeach;?>
     <div class="search clearfix">
         <input class="inp-txt" type="text" name="address" value="输入关键字"
                onfocus="if(this.value=='输入关键字'){this.value=''};this.style.color='black';"
@@ -54,111 +46,22 @@ use yii\helpers\Url;
     </div>
 </div>
 <div id="table-div">
-    <div class="table-pic table-show clearfix">
-        <a href="meishi-con.html" class="ms-wrap ms-right">
+    <?php foreach ($data as $key=>$val1):?>
+    <div class="table-pic <?php if($key==0):?>table-show<?php endif;?> clearfix">
+        <?php foreach ($val1 as $k=>$v):?>
+            <a href="meishi-con.html" class="ms-wrap <?php if(($k+1)%3 !=0):?>ms-right<?php endif;?>">
 					<span class="ms-pic">
-						<img src="../img/ms-pic1.png" alt="" />
+						<img src="/img/ms-pic2.jpg" alt="" />
 					</span>
-            <h2 class="ms-tit">大丰收</h2>
-            <p class="ms-txt">价格：25元</p>
-        </a>
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic2.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">草莓布丁杯</h2>
-            <p class="ms-txt">价格：12元</p>
-        </a>
-        <a href="meishi-con.html" class="ms-wrap">
-					<span class="ms-pic">
-						<img src="../img/ms-pic3.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">菲力黑椒牛排</h2>
-            <p class="ms-txt">价格：69元</p>
-        </a>
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic4.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">香煎排意面</h2>
-            <p class="ms-txt">价格：69元</p>
-        </a>
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic5.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">鲜香培根比萨</h2>
-            <p class="ms-txt">价格：59元/24寸</p>
-        </a>
-        <a href="meishi-con.html" class="ms-wrap">
-					<span class="ms-pic">
-						<img src="../img/ms-pic6.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">番茄烩意面</h2>
-            <p class="ms-txt">价格：39元</p>
-        </a>
+                <h2 class="ms-tit"><?php echo $v['name']?></h2>
+                <p class="ms-txt">价格：<?php echo $v['price']?>元</p>
+            </a>
+        <?php endforeach;?>
     </div>
-    <div class="table-pic clearfix">
-        <a href="meishi-con.html" class="ms-wrap">
-					<span class="ms-pic">
-						<img src="../img/ms-pic3.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">菲力黑椒牛排</h2>
-            <p class="ms-txt">价格：69元</p>
-        </a>
-    </div>
-    <div class="table-pic clearfix">
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic4.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">香煎排意面</h2>
-            <p class="ms-txt">价格：69元</p>
-        </a>
-        <a href="meishi-con.html" class="ms-wrap">
-					<span class="ms-pic">
-						<img src="../img/ms-pic6.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">番茄烩意面</h2>
-            <p class="ms-txt">价格：39元</p>
-        </a>
-    </div>
-    <div class="table-pic clearfix">
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic5.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">鲜香培根比萨</h2>
-            <p class="ms-txt">价格：59元/24寸</p>
-        </a>
-    </div>
-    <div class="table-pic clearfix">
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic2.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">草莓布丁杯</h2>
-            <p class="ms-txt">价格：12元</p>
-        </a>
-    </div>
-    <div class="table-pic clearfix">
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic2.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">草莓布丁杯</h2>
-            <p class="ms-txt">价格：12元</p>
-        </a>
-    </div>
-    <div class="table-pic clearfix">
-        <a href="meishi-con.html" class="ms-wrap ms-right">
-					<span class="ms-pic">
-						<img src="../img/ms-pic1.jpg" alt="" />
-					</span>
-            <h2 class="ms-tit">海鲜芝士大虾</h2>
-            <p class="ms-txt">价格：49元</p>
-        </a>
-    </div>
+    <?php  endforeach;?>
+
+
+
     <ul class="ms-paging clearfix">
         <li><a href="javascript:;" class="pag-item">&lt;</a></li>
         <li><a href="javascript:;" class="pag-item pag-active">1</a></li>

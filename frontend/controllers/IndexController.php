@@ -10,7 +10,9 @@ namespace app\controllers;
 
 
 
-use common\models\details;
+use common\models\Details;
+
+use common\models\Type;
 use yii\web\Controller;
 
 class IndexController extends Controller
@@ -25,9 +27,25 @@ class IndexController extends Controller
 
     public function actionShop()
     {
-        $data = Details::find()->asArray()->all();
-        return $this->renderPartial('shop',['data'=>$data]);
-    }
+
+        $type = Type::find()->asArray()->all();
+        $data = [];
+        foreach ($type as $t){
+            $details = Details::find()->where(['type'=>$t['id']])->asArray()->all();
+            $data[] = $details;
+        }
+
+
+       return $this->renderPartial('shop',['data'=>$data,'type'=>$type]);
+
+
+
+        //foreach ($type as $k=>$t){
+       //     $details = Details::find()->where(['type'=>$t['id']])->asArray()->all();
+        //    $type[$k]['data'] = $details;
+       // }
+      //  return $this->renderPartial('shop',['type' =>$type]);
+   }
 
 
     public function actionRooms()

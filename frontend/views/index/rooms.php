@@ -1,3 +1,9 @@
+
+<?php
+use yii\helpers\Url;
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +24,7 @@
 </div>
 
 <div id="container">
-    <div id="buttons">
-        <span index="1" class="on"></span>
-        <span index="2"></span>
-        <span index="3"></span>
-    </div>
-    <a href="javascript:;" id="prev" class="arrow"><img src="../img/l.png"/></a>
-    <a href="javascript:;" id="next" class="arrow"><img src="../img/r.png"/></a>
+
 </div>
 
 <ul class="breadnav clearfix">
@@ -35,12 +35,9 @@
     <li class="bnav-item"><a href="javascript:;">北京店</a></li>
 </ul>
 <div class="clearfix table-wrap" id="tab-span">
-    <span class="table-item table-active">北京店</span>
-    <span class="table-item">上海店</span>
-    <span class="table-item">厦门店</span>
-    <span class="table-item">广州店</span>
-    <span class="table-item">深圳店</span>
-    <span class="table-item">其他</span>
+    <span class="table-item table-active">雅间</span>
+    <span class="table-item">店面</span>
+    <span class="table-item">快餐间</span>
     <div class="search clearfix">
         <input class="inp-txt" type="text" name="address" value="输入关键字"
                onfocus="if(this.value=='输入关键字'){this.value=''};this.style.color='black';"
@@ -52,40 +49,29 @@
     <div class="table-pic table-show clearfix">
         <a href="shop-con.html" class="shop-wrap shop-right">
 					<span class="shop-pic">
-						<img src="../img/shop-pic1.jpg" alt="" />
+						<img src="/img/shop-pic1.jpg" alt="" />
 					</span>
-            <p class="shop-tit">北京朝阳区店</p>
+            <p class="shop-tit">北京</p>
         </a>
         <a href="shop-con.html" class="shop-wrap shop-right">
 					<span class="shop-pic">
-						<img src="../img/shop-pic2.jpg" alt="" />
+						<img src="/img/shop-pic2.jpg" alt="" />
 					</span>
-            <p class="shop-tit">北京朝阳区店</p>
+            <p class="shop-tit">河北</p>
         </a>
         <a href="shop-con.html" class="shop-wrap">
 					<span class="shop-pic">
-						<img src="../img/shop-pic3.jpg" alt="" />
+						<img src="/img/shop-pic3.jpg" alt="" />
 					</span>
-            <p class="shop-tit">北京朝阳区店</p>
+            <p class="shop-tit">重庆</p>
         </a>
         <a href="shop-con.html" class="shop-wrap shop-right">
 					<span class="shop-pic">
 						<img src="../img/shop-pic4.jpg" alt="" />
 					</span>
-            <p class="shop-tit">北京朝阳区店</p>
+            <p class="shop-tit">青岛</p>
         </a>
-        <a href="shop-con.html" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="../img/shop-pic5.jpg" alt="" />
-					</span>
-            <p class="shop-tit">北京朝阳区店</p>
-        </a>
-        <a href="shop-con.html" class="shop-wrap">
-					<span class="shop-pic">
-						<img src="../img/shop-pic6.jpg" alt="" />
-					</span>
-            <p class="shop-tit">北京朝阳区店</p>
-        </a>
+
     </div>
     <div class="table-pic clearfix">
         <a href="shop-con.html" class="shop-wrap">
@@ -109,30 +95,7 @@
             <p class="shop-tit">厦门朝阳区店</p>
         </a>
     </div>
-    <div class="table-pic clearfix">
-        <a href="shop-con.html" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="../img/shop-pic5.jpg" alt="" />
-					</span>
-            <p class="shop-tit">广州朝阳区店</p>
-        </a>
-    </div>
-    <div class="table-pic clearfix">
-        <a href="shop-con.html" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="../img/shop-pic2.jpg" alt="" />
-					</span>
-            <p class="shop-tit">深圳朝阳区店</p>
-        </a>
-    </div>
-    <div class="table-pic clearfix">
-        <a href="shop-con.html" class="shop-wrap shop-right">
-					<span class="shop-pic">
-						<img src="../img/shop-pic1.jpg" alt="" />
-					</span>
-            <p class="shop-tit">朝阳区店</p>
-        </a>
-    </div>
+
     <ul class="shop-paging clearfix">
         <li><a href="shop-con.html" class="pag-item">&lt;</a></li>
         <li><a href="shop-con.html" class="pag-item pag-active">1</a></li>
