@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Url;
+?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -15,13 +18,13 @@
 <div class="panel admin-panel">
     <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" action="">
+        <form method="post" class="form-x" action="<?php echo Url::toRoute(['list/edit','id'=>$info['id']])?>">
             <div class="form-group">
                 <div class="label">
                     <label>标题：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="" name="title" data-validate="required:请输入标题" />
+                    <input type="text" class="input w50" value="<?php echo $info['name'];?>" name="title" data-validate="required:请输入标题" />
                     <div class="tips"></div>
                 </div>
             </div>
@@ -42,10 +45,10 @@
                         <label>分类标题：</label>
                     </div>
                     <div class="field">
-                        <select name="cid" class="input w50">
+                        <select name="type" class="input w50">
                             <option value="">请选择分类</option>
                             <?php foreach ($data as $key=>$val):?>
-                                <option value="<?php echo $val['id']?>"><?php echo $val['type']?></option>
+                                <option value="<?php echo $val['id']?>" <?php if($info['type'] == $val['id']):?>selected<?php endif;?>><?php echo $val['type']?></option>
                             <?php endforeach;?>
 
                         </select>

@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use common\models\Type;
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -20,23 +21,22 @@ use yii\helpers\Url;
         <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
         <div class="padding border-bottom">
             <ul class="search" style="padding-left:10px;">
-                <li> <a class="button border-main icon-plus-square-o" href="<?php echo Url::toRoute('index/add')?>"> 添加内容</a> </li>
+                <li> <a class="button border-main icon-plus-square-o" href="<?php echo Url::toRoute('index/add')?>"> 添加菜品</a> </li>
                 <li>搜索：</li>
-
-                <if condition="$iscid eq 1">
+                <form action="<?php echo Url::toRoute(['list/list'])?>" method="post">
                     <li>
-                        <select name="cid" class="input" style="width:200px; line-height:17px;" onchange="changesearch()">
+                        <select name="type" class="input" style="width:200px; line-height:17px;">
                             <option value="">请选择分类</option>
-                            <option value="">荤菜</option>
-                            <option value="">凉菜</option>
-                            <option value="">酒水</option>
-                            <option value="">主食</option>
+                            <?php foreach ($type as $key=>$val):?>
+                                <option value="<?php echo $val['id']?>" <?php if(isset($data['type'])): echo $data['type']==$val['id']?'selected':'';endif;?>><?php echo $val['type']?></option>
+                            <?php endforeach;?>
                         </select>
                     </li>
-                </if>
-                <li>
-                    <input type="text" placeholder="请输入搜索关键字" name="keywords" class="input" style="width:250px; line-height:17px;display:inline-block" />
-                    <a href="javascript:void(0)" class="button border-main icon-search" onclick="changesearch()" > 搜索</a></li>
+                    <li>
+                        <input type="text" value="<?php echo isset($data['keywords'])?$data['keywords']:'';?>" placeholder="请输入搜索关键字" name="keywords" class="input" style="width:250px; line-height:17px;display:inline-block" />
+                        <button class="button border-main icon-search" type="submit"> 搜索</button>
+                    </li>
+                </form>
             </ul>
         </div>
         <table class="table table-hover text-center">
@@ -60,10 +60,10 @@ use yii\helpers\Url;
                     <td width="10%"><img src="/images/11.jpg" alt="" width="70" height="50" /></td>
                     <td><?php echo $val['name']?></td>
                     <td><font color="#00CC99">首页</font></td>
-                    <td><?php echo $val['type']?></td>
-                    <td>2016-07-01</td>
+                    <td><?php echo Type::getName($val['type']);?></td>
+                    <td><?php echo $val['edittime']?></td>
                     <td>
-                        <div class="button-group"> <a class="button border-main" href="<?php echo Url::toRoute('index/edit')?>"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1,1)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+                        <div class="button-group"> <a class="button border-main" href="<?php echo Url::toRoute(['list/edit','id'=>$val['id']])?>"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(<?php echo $val['id']?>)"><span class="icon-trash-o"></span> 删除</a> </div></td>
                 </tr>
 
                 <?php endforeach;?>
@@ -113,15 +113,11 @@ use yii\helpers\Url;
 </form>
 <script type="text/javascript">
 
-    //搜索
-    function changesearch(){
-
-    }
-
     //单个删除
-    function del(id,mid,iscid){
-        if(confirm("您确定要删除吗?")){
 
+    function del(id){
+        if(confirm("您确定要删除吗?")){
+            location.href="<?php echo Url::toRoute('list/delete')?>?id=" + id;
         }
     }
 

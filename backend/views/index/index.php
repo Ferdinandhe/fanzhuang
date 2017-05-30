@@ -24,9 +24,9 @@ use yii\helpers\Url;
     <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
     <h2><span class="icon-user"></span>基本设置</h2>
     <ul style="display:block">
-        <li><a href="<?php echo Url::toRoute('index/pass')?>" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
-        <li><a href="<?php echo Url::toRoute('index/list')?>" target="right"><span class="icon-caret-right"></span>内容管理</a></li>
-        <li><a href="<?php echo Url::toRoute('index/add')?>" target="right"><span class="icon-caret-right"></span>添加内容</a></li>
+        <li><a href="<?php echo Url::toRoute('list/list')?>" target="right"><span class="icon-caret-right"></span>内容管理</a></li>
+        <li><a href="<?php echo Url::toRoute('index/add')?>" target="right"><span class="icon-caret-right"></span>添加菜品</a></li>
+        <li><a href="<?php echo Url::toRoute('index/manage')?>" target="right"><span class="icon-caret-right"></span>类型管理</a></li>
         <li><a href="<?php echo Url::toRoute('index/order')?>" target="right"><span class="icon-caret-right"></span>订单管理</a></li>
     </ul>
 </div>

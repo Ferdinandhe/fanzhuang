@@ -27,7 +27,8 @@ use yii\helpers\Url;
                     <input type="text" class="input w50" value="" name="title" data-validate="required:请输入标题" />
                     <div class="tips"></div>
                 </div>
-
+            </div>
+            <div class="form-group">
                 <div class="label">
                     <label>价格：</label>
                 </div>

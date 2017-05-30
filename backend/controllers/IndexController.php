@@ -6,7 +6,7 @@
  * Time: 14:51
  */
 
-namespace app\controllers;
+namespace backend\controllers;
 
 use common\models\Details;
 use Yii;
@@ -24,10 +24,6 @@ class IndexController extends Controller
 
     }
 
-    public function actionInfo()
-    {
-        return $this->renderPartial('info');
-    }
 
 
     public function actionOrder()
@@ -37,26 +33,44 @@ class IndexController extends Controller
 
 
 
-
-    public function actionList()
+    public function actionInfo()
     {
-        $type =  Type::find()->asArray()->all();
-        $dav = Details::find()->asArray()->all();
-        return $this->renderPartial('List',['dav' => $dav],['type'=>$type]);
+        return $this->renderPartial('info');
     }
 
 
-    public function actionPass()
+    public function actionManage()
     {
-        return $this->renderPartial('pass');
+        //如果是post方式
+        if (Yii::$app->request->isPost) {
+            $data = Yii::$app->request->post();
+            //创建一个新对象
+            $model = new Type();
+            //将数据赋值给model类。
+            $model->setAttributes([
+                'name' => $data['type'],
+                'type' => $data['type'],
+            ], false);
+
+            //model类中的数据保存到数据库
+            if ($model->save()) {
+                echo '添加成功';
+            }
+
+        } else {
+            //如果是get方式
+            //从type表中取出数据
+
+            $data = Type::find()->asArray()->all();
+            return $this->renderPartial('manage', ['data' => $data]);
+        }
+
     }
 
 
-    public function actionEdit()
-    {
-        $data = Type::find()->asArray()->all();
-        return $this->renderPartial('Edit', ['data' => $data]);
-    }
+
+
+
 
 
     public function actionAdd()
@@ -71,6 +85,7 @@ class IndexController extends Controller
                 'name' => $data['title'],
                 'type' => $data['type'],
                 'price' => $data['price'],
+                'edittime'=> date("Y-m-d H:i:s"),
             ], false);
 
             //model类中的数据保存到数据库

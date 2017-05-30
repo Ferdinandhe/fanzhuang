@@ -7,11 +7,7 @@
  */
 
 namespace app\controllers;
-
-
-
 use common\models\Details;
-
 use common\models\Type;
 use yii\web\Controller;
 

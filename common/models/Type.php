@@ -7,8 +7,6 @@
  */
 
 namespace common\models;
-
-
 use yii\db\ActiveRecord;
 
 class Type extends ActiveRecord
@@ -16,5 +14,17 @@ class Type extends ActiveRecord
     public static function tableName()
     {
         return 'dishes_type';
+    }
+
+    public static function getName($id)
+    {
+        $info = self::find()->where(['id'=>$id])->one();
+        if($info){
+            return $info['type'];
+        }else{
+            return '未知类型';
+        }
+
+
     }
 }

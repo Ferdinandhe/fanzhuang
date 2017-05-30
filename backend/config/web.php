@@ -6,6 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'index',  //更改默认执行路径
     'components' => [
         'request' => [
